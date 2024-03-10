@@ -14,40 +14,28 @@ public class FlightController {
     @Autowired
     FlightService flightService;
 
-    @GetMapping()
-    public List<Flight> hello(){return flightService.listarVuelos();}
-
-   /* @GetMapping("/unVuelo")
-    public Flight getFlight(){
-        return flightService.returnOneFlight();
-    }
-    @GetMapping("/todos")
+    @GetMapping("")
     public List<Flight> getAllFlights(){
         return flightService.returnAllFlights();
     }
 
     @PostMapping("/agregar")
-    public void createFlight(){
-        flightService.createFlight();
+    public void createFlight(@RequestBody Flight flight){
+        flightService.createFlight(flight);
     }
 
-    @GetMapping("/id")
-    public Flight findFlightById(){
-        Long id = 1L;
-        Flight flightFound = flightService.findFlightById(id);
-        return flightFound;
+   @GetMapping("/{Id}")
+    public Flight findFlightById(@PathVariable Long Id){
+        return flightService.findFlightById(Id);
     }
 
-    @DeleteMapping("/borrar")
-    public void deleteFlight(){
-        Long id = 1L;
+   @DeleteMapping("/borrar/{id}")
+    public void deleteFlight(@PathVariable Long id){
         flightService.deleteFlightbyId(id);
     }
-
     @PutMapping("/actualizar")
-    public void updateFlight(){
-        Long id = 2L;
-        flightService.updateFlightById(id);
-    }*/
+    public Flight updateFlight(@RequestBody Flight flight){
+        return flightService.updateFlight(flight);
+    }
 
 }

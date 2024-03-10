@@ -25,4 +25,12 @@ public class Flight {
    private String frecuencia;
 
 
+   public Flight(String origen, String destino, String fechaHoraSalida, String fechaHoraLlegada, double precioEnPesos, String frecuencia) {
+      this.origen = origen;
+      this.destino = destino;
+      this.fechaHoraSalida = fechaHoraSalida;
+      this.fechaHoraLlegada = fechaHoraLlegada;
+      this.precioEnPesos = precioEnPesos;
+      this.frecuencia = frecuencia;
+   }
 }
