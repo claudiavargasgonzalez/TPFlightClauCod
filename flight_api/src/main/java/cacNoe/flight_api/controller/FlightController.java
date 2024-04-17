@@ -58,10 +58,10 @@ public class FlightController {
 
 
     //me trae el promedio del dolar a traves de la api
-    @GetMapping("/dolarPromedio")
+    /*@GetMapping("/dolarPromedio")
     public double getDolar(){
         return flightService.getDollar();
-    }
+    }*/
 
 
 

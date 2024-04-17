@@ -45,10 +45,14 @@ public class FlightService {
     }
 
     public List<FlightDto> returnAllFlights(){
-        List <Flight> flightList= repository.findAll();
-        List <FlightDto> flightDtoList = flightList.stream()
+        double dollarPrice = getDollar();
+        List <Flight> flights= repository.findAll();
+        return flightUtils.flightMapper(flights,dollarPrice);
+        /*List <FlightDto> flightDtoList = flightList.stream()
                 .map(flight -> flightUtils.flightMapper(flight,getDollar())).collect(Collectors.toList());
-        return flightDtoList;
+        return flightDtoList;*/
+        //return flightList.stream().map(flight->flightUtils.flightMapper(flight,getDollar())).collect(Collectors.toList());
+
 
     }
 
@@ -71,11 +75,8 @@ public class FlightService {
         return flightListInOffer;
     }
 
-    /*public Dolar getDolar() {
-        return flightConfiguration.fetchDolar();
-    }*/
 
-    public double getDollar() {
+    private double getDollar() {
         Dolar dolar = flightConfiguration.fetchDolar();
         return dolar.getPromedio();
     }
