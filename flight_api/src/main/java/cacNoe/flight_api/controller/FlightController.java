@@ -1,7 +1,6 @@
 package cacNoe.flight_api.controller;
 
 
-import cacNoe.flight_api.models.Dolar;
 import cacNoe.flight_api.models.Flight;
 import cacNoe.flight_api.models.FlightDto;
 import cacNoe.flight_api.service.FlightService;
@@ -55,13 +54,6 @@ public class FlightController {
     public List<Flight> getOffer(@RequestParam double price){
         return flightService.getOffers(price);
     }
-
-
-    //me trae el promedio del dolar a traves de la api
-    /*@GetMapping("/dolarPromedio")
-    public double getDolar(){
-        return flightService.getDollar();
-    }*/
 
 
 

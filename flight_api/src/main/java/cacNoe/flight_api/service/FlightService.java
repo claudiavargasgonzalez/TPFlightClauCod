@@ -48,11 +48,6 @@ public class FlightService {
         double dollarPrice = getDollar();
         List <Flight> flights= repository.findAll();
         return flightUtils.flightMapper(flights,dollarPrice);
-        /*List <FlightDto> flightDtoList = flightList.stream()
-                .map(flight -> flightUtils.flightMapper(flight,getDollar())).collect(Collectors.toList());
-        return flightDtoList;*/
-        //return flightList.stream().map(flight->flightUtils.flightMapper(flight,getDollar())).collect(Collectors.toList());
-
 
     }
 
