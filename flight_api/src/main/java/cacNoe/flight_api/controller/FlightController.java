@@ -1,7 +1,9 @@
 package cacNoe.flight_api.controller;
 
 
+import cacNoe.flight_api.models.Dolar;
 import cacNoe.flight_api.models.Flight;
+import cacNoe.flight_api.models.FlightDto;
 import cacNoe.flight_api.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +18,7 @@ public class FlightController {
     FlightService flightService;
 
     @GetMapping("")
-    public List<Flight> getAllFlights(){
+    public List<FlightDto> getAllFlights(){
         return flightService.returnAllFlights();
     }
 
@@ -52,6 +54,13 @@ public class FlightController {
     @GetMapping("/offer")
     public List<Flight> getOffer(@RequestParam double price){
         return flightService.getOffers(price);
+    }
+
+
+    //me trae el promedio del dolar a traves de la api
+    @GetMapping("/dolarPromedio")
+    public double getDolar(){
+        return flightService.getDollar();
     }
 
 
