@@ -47,4 +47,5 @@ class FlightUtilsTest {
         assertEquals("daily",flight.getFrequency());
 
     }
+
 }
