@@ -22,8 +22,8 @@ public class FlightController {
     }
 
     @PostMapping("/add")
-    public void createFlight(@RequestBody Flight flight){
-        flightService.createFlight(flight);
+    public void createFlight(@RequestBody Flight flight,@RequestParam Long companyId){
+        flightService.createFlight(flight, companyId);
     }
 
    @GetMapping("/{id}")

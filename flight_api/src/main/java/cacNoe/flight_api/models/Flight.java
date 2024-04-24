@@ -1,15 +1,14 @@
 package cacNoe.flight_api.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Data
 @Entity
 public class Flight {
@@ -22,6 +21,9 @@ public class Flight {
    private String dateTimeArrival;
    private double price;
    private String frequency;
+   @ManyToOne
+   @JoinColumn(name="company_id")
+   private Company company;
 
 
    public Flight(String origin, String destiny, String dateTimeDeparture, String dateTimeArrival, double price, String frequency) {

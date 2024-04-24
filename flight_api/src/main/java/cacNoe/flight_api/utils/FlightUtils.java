@@ -13,7 +13,7 @@ public class FlightUtils {
         List <FlightDto> flightDtos = new ArrayList<>();
         for(Flight flight : flights){
             flightDtos.add(new FlightDto(flight.getId(),flight.getOrigin(),flight.getDestiny(),flight.getDateTimeDeparture(),
-                    flight.getDateTimeArrival(),flight.getPrice() * dollarPrice,flight.getFrequency()));
+                    flight.getDateTimeArrival(),flight.getPrice() * dollarPrice,flight.getFrequency(), flight.getCompany()));
         }
         return flightDtos;
     }

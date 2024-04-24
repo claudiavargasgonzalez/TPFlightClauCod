@@ -1,9 +1,11 @@
 package cacNoe.flight_api.service;
 
 import cacNoe.flight_api.configuration.FlightConfiguration;
+import cacNoe.flight_api.models.Company;
 import cacNoe.flight_api.models.Dolar;
 import cacNoe.flight_api.models.Flight;
 import cacNoe.flight_api.models.FlightDto;
+import cacNoe.flight_api.repository.CompanyRepository;
 import cacNoe.flight_api.repository.FlightRepository;
 import cacNoe.flight_api.utils.FlightUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class FlightService {
@@ -24,9 +26,16 @@ public class FlightService {
     @Autowired
     FlightUtils flightUtils;
 
+    @Autowired
+    CompanyRepository companyRepository;
 
 
-    public void createFlight(Flight flight) {
+
+    public void createFlight(Flight flight,Long companyId) {
+        Company company = companyRepository.findById(companyId)
+                .orElseThrow(() -> new IllegalArgumentException("Company not found"));
+
+        flight.setCompany(company);
         repository.save(flight);
     }
 
