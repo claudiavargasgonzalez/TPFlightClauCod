@@ -1,0 +1,31 @@
+#spring.jpa.hibernate.ddl-auto=update
+#spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/flightairline
+#spring.datasource.username=root
+#spring.datasource.password=
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.jpa.show-sql: true
+
+spring:
+  application:
+    name: flight-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/flightairline
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  server:
+    port: 0
+  eureka:
+    client:
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+        defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      preferIpAddress: true
